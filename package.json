@@ -1,0 +1,12 @@
+{
+  "name":"hm-personal-website",
+  "private":true,
+  "type":"module",
+  "scripts":{
+    "typecheck":"tsc --noEmit",
+    "build":"npm run typecheck && esbuild src/opening.tsx src/demo.tsx --bundle --minify --format=iife --outdir=assets/ink-reveal && tailwindcss -i styles/globals.css -o assets/ink-reveal/ui.css --minify",
+    "start":"node server.mjs"
+  },
+  "dependencies":{"react":"^19.2.0","react-dom":"^19.2.0","clsx":"^2.1.1","tailwind-merge":"^2.6.0"},
+  "devDependencies":{"@types/react":"^19.2.0","@types/react-dom":"^19.2.0","esbuild":"^0.25.0","typescript":"~5.9.3","tailwindcss":"^3.4.17","tailwindcss-animate":"^1.0.7"}
+}

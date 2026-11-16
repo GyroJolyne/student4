@@ -1,0 +1,34 @@
+/* Keep the same typeface across the original pages and the portfolio components. */
+:root {
+  --text-body: 20px;
+  --text-note: 16px;
+  --text-card-title: clamp(28px, 3vw, 46px);
+  --text-subheading: calc(var(--text-body) + 3px);
+  --body-leading: 1.7;
+}
+@media (max-width: 900px) {
+  :root { --text-body: 18px; --text-note: 15px; }
+}
+@media (max-width: 360px) {
+  :root { --text-body: 17px; }
+}
+@media (min-width: 1600px) {
+  :root { --text-body: 22px; --text-note: 17px; }
+}
+:root,
+:root body,
+:root body * {
+  font-family: "Times New Roman", "KaiTi", "楷体", "STKaiti", "Kaiti SC", "BiauKai", "DFKai-SB", serif !important;
+}
+
+:root body h1:not(.screen-reader) {
+  width: 100%;
+  margin: 0;
+  padding-block: clamp(36px, 5vw, 80px);
+  text-align: center;
+  font-size: clamp(32px, 4.7vw, 76px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: normal;
+  text-transform: none;
+}

@@ -1,0 +1,135 @@
+.rain-opening {
+  position: relative;
+  isolation: isolate;
+  height: 100svh;
+  width: 100%;
+
+  background: #101821;
+  touch-action: pan-y pinch-zoom;
+  overflow: hidden;
+}
+.rain-opening > img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+
+@media (min-width: 992px) {
+  .rain-opening > img {
+    object-position: center top;
+  }
+}
+
+.rain-opening .reveal-layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+.rain-opening .ink-canvas-host {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+}
+.rain-opening.ink-ready .ink-canvas-host { visibility: visible; }
+.rain-opening.ink-ready .reveal-layer { opacity: 1; }
+
+:root { --portfolio-nav-height: clamp(56px, 4.4vw, 76px); }
+:is(#creator-world, #art-reel, #zhengwen-lora, #comfyui-workflow) {
+  scroll-margin-top: var(--portfolio-nav-height);
+}
+.portfolio-nav {
+  width: 100%;
+  min-height: var(--portfolio-nav-height);
+  padding-inline: clamp(18px, 4vw, 88px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  pointer-events: auto;
+  background: linear-gradient(100deg, rgb(31 32 29 / 97%), rgb(39 39 35 / 93%));
+  border-bottom: 1px solid #897a58;
+  color: #f0e6d2;
+}
+.portfolio-nav a { color: inherit; text-decoration: none; white-space: nowrap; }
+.portfolio-brand {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: clamp(22px, 1.9vw, 32px); font-weight: 700; letter-spacing: .045em;
+}
+.portfolio-seal {
+  display: grid; place-items: center;
+  width: 36px; aspect-ratio: 1;
+  background: #873d32; color: #fff0ce;
+  border: 1px solid #ba8164; border-radius: 5px;
+  box-shadow: inset 0 0 0 2px #873d32, inset 0 0 0 3px #bb8164;
+  font-size: 17px; letter-spacing: 0;
+}
+.portfolio-nav-links { display: flex; align-items: center; }
+.portfolio-nav-links a {
+  position: relative; display: grid; align-items: center; min-height: 44px;
+  padding-inline: clamp(10px, 1.6vw, 32px);
+  font-size: var(--text-body);
+}
+.portfolio-nav-links a + a::before {
+  content: ""; position: absolute; left: 0; height: .85em;
+  top: 50%; transform: translateY(-50%); border-left: 1px solid #756f60;
+}
+.portfolio-nav-links a:last-child { padding-right: 0; }
+.portfolio-nav a:hover { color: #ffdc99; }
+.portfolio-nav a:focus-visible { outline: 2px solid #ffdc99; outline-offset: 2px; }
+@media (max-width: 760px) {
+  :root { --portfolio-nav-height: 88px; }
+  .portfolio-nav { flex-direction: column; align-items: stretch; gap: 0; padding-inline: clamp(6px, 2vw, 14px); }
+  .portfolio-brand { align-self: flex-start; min-height: 44px; font-size: 21px; gap: 8px; }
+  .portfolio-seal { width: 27px; font-size: 14px; }
+  .portfolio-nav-links { justify-content: space-between; }
+  .portfolio-nav-links a { padding-inline: 2px; font-size: var(--text-note); }
+  .portfolio-nav-links a:first-child { padding-left: 0; }
+  .portfolio-nav-links a + a::before { display: none; }
+}
+
+@media (max-width: 360px) {
+  .portfolio-nav-links { display: grid; grid-template-columns: .85fr 1.15fr 1fr 1.2fr; }
+  .portfolio-nav-links a { display: block; align-content: center; text-align: center; white-space: normal; text-wrap: balance; }
+}
+
+.creator-intro {
+  width: min(100%, 40em);
+  color: #292d26;
+  font-size: var(--text-body); line-height: var(--body-leading);
+  text-align: start;
+  line-break: strict;
+  text-shadow: 0 1px 4px rgb(248 245 236 / 65%);
+}
+.creator-intro p {
+  margin: 0;
+  font: inherit;
+  letter-spacing: normal;
+}
+.creator-intro p + p { margin-top: 1em; }
+.creator-intro .creator-intro-lead {
+  color: #20251d;
+  font-size: var(--text-subheading); line-height: 1.45; font-weight: 700;
+  text-wrap: balance;
+}
+/* The original tablet wordmark sits above the portrait on narrow screens. */
+@media (max-width: 991px) {
+  .rain-opening .home-hero-tablet-hero-text {
+    position: absolute;
+    inset: auto 0 var(--gap);
+    z-index: 1;
+    margin: 0;
+    pointer-events: none;
+  }
+}
+
+.ink-canvas-host, .viewport-ink { pointer-events: none; }
+.viewport-ink {
+  position: fixed;
+  inset: 0;
+  visibility: hidden;
+  overflow: hidden;
+}

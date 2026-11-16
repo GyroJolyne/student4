@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 42 32% 92%;
+  --foreground: 210 5% 15%;
+  --primary: 6 50% 38%;
+  --primary-foreground: 37 100% 95%;
+  --border: 38 10% 70%;
+}
